@@ -78,13 +78,21 @@ Ver imagen:
 Peguntas que nos interesan saber ! 
 
 1. De los 4 estados mencionados anteriormente, cuales crees que se encuentran presente en la data
+   - Deben estar presente los diferentes estados ya que hay dato de 100 motores dentro de los cuales hay diferentes registros que deben tener diferentes etapas que han podido estar estos motores.
 2. Como encontrarías estos estados sin conocer la data, todos los sensores aportan información? con cuales trabajarías?
-3. Que tipo de algoritmos no supervisados se adaptan a este problema
+   - Al hacer referencia a motores dentro de las caracteristicas para saber el estado de un motor es necesario saber la temperatura para poder determinar si esta en los valores que pueden indicar los fabricantes del motor, tener medición de vibraciones para poder tener ese parametro y poder determinar la información de lo medido respecto al datasheet, valores de voltaje y corriente del motor, y sus correspondientes configuraciones si esta trabajando debajo de su valor nominal si esta seteado con algún variador de frecuencia todos esos valores son información valiosa que puede aportar dentro del modelo para determinar un estado en particular, ahora bien con la información proporcionada lo que se puede hacer es una detección de anomalias respeto a cada motor dentro del conjunto de datos e ir detectando comportamientos al unisono de que tanto ha variado en el tiempo.
+3. Que tipo de algoritmos no supervisados se adaptan a este problema.
+   - Al ser un problema de clasificación por agrupamiento el algorimo que más se adapta el kmeans ya por las caracteristicas que se nos presenta el problema ademas ya tenemos definidas que existen 4 etapas lo que ayuda a poder utilizar ese valor como parametro dentro del algoritmo.
 4. Es factible el deep learning para descubrir estos estados
+   - Este tipo de problema sin lugar a dudas es para poder resolver de forma clasica con algorimos de clasificación no supervisado tal como se desarrollo en este challenge con el algoritmo k-means, pero con los avances que se han realizado en el campo del deep learning en los últimos años probablemente hay alguna posibilidad de experimentar con alguna arquitectura con la finalidad de poder inferir este tipo de problema y evaluar dicho comportamiento.
 5. Es escalable la solución para todos los motores? o debes hacer el análisis por motor?
+   - No necesariamente podría ser escalable con todos los motores ya que allí asumiriamos que son de las mismas caracteristicas todo y es algo que se desconoce con este conjunto de datos las caracateristicas de dichos motores como lo es su hp, voltaje, si son monofasicos, si es trifasico, pero nos ayuda en un inicio a poder tener una base de donde partir.
 6. Escribe el código
-7. Es escalable tu solución ¿Que dificultades tuvo el modelamiento? ¿Como harías escalable tu solución? 
-8. ¿Tus resultados son reproducibles en el tiempo?
+   - El código se estructuro en diferentes jupyter-notebooks para poder prototipar la solución además de ello se hiz apoyo en el recurso de cookiecutter ya que ayuda en el desarrollo de proyectos de ciencia de datos el archivo 1.0-ggodoy-full_with_module.ipynb puede ser traslado a un archivo .py y de este modo poder ejercutar el script por completo.
+7. Es escalable tu solución ¿Que dificultades tuvo el modelamiento? ¿Como harías escalable tu solución?
+   - Falta generar el main para ejecutar y dejar de usar los notebooks que ayudaron a prototipar, sería muy bueno poder consultar las fuentes de los datos apra recabar mayor información que pueda dar una mayor certeza de la calidad de agrupación que se genero con el cmodelo apra ajustar y llegar a una mayor confiabilidad. Además poder almacenar esto como un modelo el cual podamos generar un relacolección constante de los datos que de igual forma permita darle un valor agregado al negocio no solo en este punto de calsificación para saber el estado de un registro sino que tambien poder ayuda a preveer llegar a punto de fallas de dichos motores que sean de estado 4 y tomar acciones tempranas. Una dificulta sin lugar a duda es no saber que significado tiene cada sensor ya que con eso pudieramos tener mayor capacidad de entendimeinto de los datos saber cual es la temperatura como caso critico dentro de los motores. Seguir generando modularización no solo de las gráficas que permitieron mejorar parate del prototipado. Las dimensionalidades a pesar de haber ocupado dentro de la libreria de scikit-learn para la reduccion de dimensionalidad y así poder plotear la solución generar mayores ajuste para que pueda ser mas claro la identificación de los vectores.
+8. ¿Tus resultados son reproducibles en el tiempo?.
+   - Al poder generar esta estructura base permite que podamos tener una base en el tiempo que sin lugar a dudas toca reforzar para que sea mucho más optimo los procesos y garantizar una calidad del resultado
 
 ### QUE ENTREGAR?
 

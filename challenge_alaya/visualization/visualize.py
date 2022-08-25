@@ -27,3 +27,14 @@ def plot_correlation_heatmap(df: pd.DataFrame):
         cmap='BrBG')
     heatmap.set_title('Correlation Heatmap', fontdict={'fontsize':18}, pad=12);
     plt.show()
+
+def plot_elbow_method(inercia):
+    """
+        Se traza la curva de la suma de errores cuadráticos
+    """
+    plt.figure(figsize=[10,6])
+    plt.title('Método del Codo')
+    plt.xlabel('Nº. de clusters')
+    plt.ylabel('Inercia')
+    plt.plot(list(range(1,20)), inercia, marker='o')
+    plt.show()

@@ -13,3 +13,17 @@ def plot_work_by_motor(df: pd.DataFrame):
         data=df)
     plt.title('Cantidad de trabajo por motores')
     plt.show()
+
+def plot_correlation_heatmap(df: pd.DataFrame):
+    """
+        Función que permite crear la matriz de correlación del dataframe
+    """
+    plt.figure(figsize=(30, 15))
+    heatmap = sns.heatmap(
+        df.corr(), 
+        vmin=-1, 
+        vmax=1, 
+        annot=True, 
+        cmap='BrBG')
+    heatmap.set_title('Correlation Heatmap', fontdict={'fontsize':18}, pad=12);
+    plt.show()
